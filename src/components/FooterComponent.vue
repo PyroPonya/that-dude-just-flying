@@ -11,7 +11,11 @@
         class="bg__element"
       >
         <div class="element__num">{{ id + 1 }}</div>
-        <div class="element__text">Registrieren Sie sich auf der Website</div>
+        <div class="element__text">
+          {{
+            store.languages[currentLanguage].interface.landing.footer.steps[id]
+          }}
+        </div>
       </div>
     </div>
   </div>
@@ -32,6 +36,9 @@ export default {
 .container__footer
   min-height: 150px
   width: 100%
+  display: flex
+  flex-direction: column
+  gap: 25px
   .footer__title
     font-weight: 600
     font-size: 30px

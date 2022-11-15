@@ -86,7 +86,7 @@ $rotate: 45deg
   .logo
     width: 265px
     height: 134px
-    background-image: url('./src/assets/logo_main.svg')
+    background: url('/src/assets/logo_main.svg')
     background-position: center
     background-size: contain
     background-repeat: no-repeat
