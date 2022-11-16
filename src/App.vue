@@ -56,14 +56,14 @@ const activeStep = ref(0);
 const isMobile = window.innerWidth <= 750 ? true : false;
 const registerFormDisplay = ref(true);
 // steps animatiom start
-function intervalId(duration = 3000) {
+function intervalId(duration = 2000) {
   setInterval(() => {
     activeStep.value++;
     activeStep.value > 2 ? (activeStep.value = 0) : '';
   }, duration);
 }
 onMounted(() => {
-  intervalId(3000);
+  intervalId(2000);
 });
 onUnmounted(() => {
   clearInterval(intervalId());
