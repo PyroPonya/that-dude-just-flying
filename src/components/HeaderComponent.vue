@@ -86,7 +86,7 @@ $rotate: 45deg
   .logo
     width: 265px
     height: 134px
-    background: url('/src/assets/logo_main.svg')
+    background: url('/src/assets/header/logo.svg')
     background-position: center
     background-size: contain
     background-repeat: no-repeat
@@ -155,19 +155,18 @@ $rotate: 45deg
         width: 100%
         height: 50px
         color: #FFFFFF
-// @media (max-width: 1440px)
-//   .container__header
-//     // flex-wrap: nowrap
-//     gap: unset
-//     padding: 0 40px
-//   .lang__dropdown
-//     left: 0% !important
-//     .dropdown__el
-//       min-width: 100% !important
-// @media (max-width: 960px)
-//   .container__header
-//     padding: 0 20px
-// @media (max-width: 415px)
-//   .container__header
-//     flex-wrap: nowrap
+@media (width < 1010px)
+  .container__header
+    align-items: center
+@media (width < 750px)
+  .container__header
+    max-height: 50px
+    min-height: 50px
+    .logo
+      height: 50px
+      width: 50px
+      background: url('/src/assets/header/logo_mobile.svg')
+      background-position: center
+      background-size: contain
+      background-repeat: no-repeat
 </style>

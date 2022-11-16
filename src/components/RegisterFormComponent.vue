@@ -694,6 +694,9 @@ export default {
   .btn-container
     background-color: #13171E
     border-radius: 12px
+    width: 100%
+    height: 50px
+    margin: 14px 0 7px 0
     // prevent selection start
     user-select: none
     -webkit-user-select: none
@@ -706,9 +709,8 @@ export default {
     flex-direction: row
     justify-content: center
     align-items: center
-    min-width: 300px
-    min-height: 50px
-    margin: 14px 0 7px 0
+    min-width: 100%
+    min-height: 100%
     gap: 10px
     background: linear-gradient(256.33deg, #FFB639 18.19%, #E49100 80.14%)
     color: #13171E
@@ -773,6 +775,7 @@ export default {
     align-items: center
     justify-content: center
     flex-wrap: wrap
+    min-width: 100%
     gap: 9px
     &-element
       // margin: 10px 8px
@@ -819,25 +822,45 @@ export default {
         width: 38px
         background: center / contain no-repeat url("/src/assets/form/iDebit.svg")
 
-@media (max-width: 415px)
+// @media (max-width: 415px)
+//   .form
+//     display: flex !important
+//     flex-direction: column
+//     justify-content: center
+//     align-items: center
+//     max-width: 330px
+//     padding: 20px 40px
+//     .content
+//       padding: 0px 0px 15px 0px
+//       .mail__container, .pass__container, .form__input, .form__btn, .btn-container
+//         min-width: 20px
+//         max-width: 240px
+//       .form__password-toggle
+//         right: 10%
+//       .form__login
+//         justify-content: flex-start
+//         align-items: flex-start
+//         gap: 5px
+//       .dropdown
+//         max-width: 240px
+@media (width < 750px)
   .form
+    max-width: 330px
     display: flex !important
-    flex-direction: column
     justify-content: center
     align-items: center
-    max-width: 330px
-    padding: 20px 40px
     .content
-      padding: 0px 0px 15px 0px
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: flex-start
+      max-width: 242px
+      padding: 0
       .mail__container, .pass__container, .form__input, .form__btn, .btn-container
-        min-width: 20px
         max-width: 240px
-      .form__password-toggle
-        right: 10%
       .form__login
-        justify-content: flex-start
-        align-items: flex-start
         gap: 5px
-      .dropdown
-        max-width: 240px
+        margin-bottom: 15px
+    .form__partners
+      padding: 0px 5px
 </style>

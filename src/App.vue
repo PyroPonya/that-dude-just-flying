@@ -14,6 +14,14 @@
             {{ store.languages[currentLanguage].interface.landing.body }}
           </div>
         </div>
+        <FooterComponent
+          v-if="isMobile"
+          :store="store"
+          :currentLanguage="currentLanguage"
+          :activeStep="activeStep"
+          :isMobile="isMobile"
+          class="footer footer__mobile"
+        />
         <register-form-component
           class="register"
           :store="store"
@@ -23,7 +31,14 @@
           @regData="(payload) => apiRegisterData(payload)"
         />
       </div>
-      <FooterComponent :store="store" :currentLanguage="currentLanguage" />
+      <FooterComponent
+        v-if="!isMobile"
+        :store="store"
+        :currentLanguage="currentLanguage"
+        :activeStep="activeStep"
+        :isMobile="isMobile"
+        class="footer footer__main"
+      />
     </div>
   </div>
 </template>
@@ -35,9 +50,24 @@ import FooterComponent from './components/FooterComponent.vue';
 import { onMounted, onUnmounted, ref } from 'vue';
 import useStore from './Store/store';
 const store = useStore;
-// const isMobile = window.innerWidth <= 415 ? true : false;
+const activeStep = ref(0);
+const isMobile = window.innerWidth <= 750 ? true : false;
 const registerFormDisplay = ref(true);
 // blurify start
+// steps animatiom start
+function intervalId(duration = 3000) {
+  setInterval(() => {
+    activeStep.value++;
+    activeStep.value > 2 ? (activeStep.value = 0) : '';
+  }, duration);
+}
+onMounted(() => {
+  intervalId(3000);
+});
+onUnmounted(() => {
+  clearInterval(intervalId());
+});
+// steps animation end
 const scrolly = ref();
 const blur = ref('none');
 const currentLanguage = ref('en');
@@ -81,6 +111,7 @@ const updateLanguage = (lang) => {
   background-position: center
   background-size: cover
   background-repeat: no-repeat
+  // padding:
   .container
     max-width: 1300px
     width: 100%
@@ -99,6 +130,8 @@ const updateLanguage = (lang) => {
       align-items: center
       justify-content: space-between
       .container__text
+        display: flex
+        flex-direction: column
         font-family: 'Montserrat'
         font-style: normal
         max-width: 685px
@@ -118,4 +151,53 @@ const updateLanguage = (lang) => {
           color: #FFFFFF
       .register
         align-self: flex-end
+@media (width < 1010px)
+  .main__container
+    .container
+      padding: 30px 50px 120px 50px
+      .container__body
+        gap: 20px
+        align-items: flex-start
+        padding-top: 80px
+        .container__text
+          max-width: 425px
+          gap: 20px
+          .text__title
+            font-size: 24px
+            line-height: 29px
+          .text__body
+            font-size: 30px
+            line-height: 37px
+@media (width < 750px)
+  .main__container
+    background: url('./assets/bg_mobile.jpg')
+    background-position: center
+    background-size: cover
+    background-repeat: no-repeat
+    .container
+      padding: 10px 15px
+      gap: 15px
+      .header
+      .container__body
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        gap: 30px
+        padding-top: 0
+        .container__text
+          max-width: 210px
+          text-align: center
+          text-justify: center
+          .text__title
+            font-size: 14px
+            line-height: 17px
+          .text__body
+            font-size: 20px
+            line-height: 24px
+        .register
+          align-self: center
+        // .footer__mobile
+        //   .footer__bg
+        //     display: flex
+        //     flex-direction: column
 </style>
