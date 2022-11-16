@@ -1,6 +1,6 @@
 <template>
   <div class="container__header">
-    <div class="logo"></div>
+    <div @click="requestRedirect(store.links.sportsbook)" class="logo"></div>
     <div
       :style="selectorOpen ? '--rotate: -135deg' : '--rotate: 45deg'"
       @click="selectorOpen = !selectorOpen"

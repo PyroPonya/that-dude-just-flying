@@ -821,28 +821,6 @@ export default {
         height: 24px
         width: 38px
         background: center / contain no-repeat url("/src/assets/form/iDebit.svg")
-
-// @media (max-width: 415px)
-//   .form
-//     display: flex !important
-//     flex-direction: column
-//     justify-content: center
-//     align-items: center
-//     max-width: 330px
-//     padding: 20px 40px
-//     .content
-//       padding: 0px 0px 15px 0px
-//       .mail__container, .pass__container, .form__input, .form__btn, .btn-container
-//         min-width: 20px
-//         max-width: 240px
-//       .form__password-toggle
-//         right: 10%
-//       .form__login
-//         justify-content: flex-start
-//         align-items: flex-start
-//         gap: 5px
-//       .dropdown
-//         max-width: 240px
 @media (max-width: 750px)
   .form
     max-width: 330px

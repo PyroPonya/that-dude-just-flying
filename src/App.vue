@@ -3,7 +3,9 @@
     <div class="container">
       <HeaderComponent
         class="header"
+        :store="store"
         @setLang="(payload) => updateLanguage(payload)"
+        @requestRedirect="(payload) => redirectTo(payload)"
       />
       <div class="container__body">
         <div class="container__text">
@@ -53,7 +55,6 @@ const store = useStore;
 const activeStep = ref(0);
 const isMobile = window.innerWidth <= 750 ? true : false;
 const registerFormDisplay = ref(true);
-// blurify start
 // steps animatiom start
 function intervalId(duration = 3000) {
   setInterval(() => {
@@ -68,6 +69,7 @@ onUnmounted(() => {
   clearInterval(intervalId());
 });
 // steps animation end
+// blurify start
 const scrolly = ref();
 const blur = ref('none');
 const currentLanguage = ref('en');
@@ -75,12 +77,8 @@ const watchScroll = () => {
   scrolly.value = window.top.scrollY;
   scrolly.value > 60 ? (blur.value = 'blur(7.5px)') : (blur.value = '');
 };
-// const checkScreen = () => {
-//   window.innerWidth <= 415 ? store.useForm() : '';
-// };
 onMounted(() => {
   document.addEventListener('scroll', (e) => watchScroll(e));
-  // checkScreen();
 });
 onUnmounted(() => {
   document.removeEventListener('scroll', watchScroll());
