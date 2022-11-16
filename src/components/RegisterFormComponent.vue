@@ -753,6 +753,7 @@ export default {
     display: flex
     gap: 9px
     justify-content: center
+    white-space: nowrap
     .login__title
       font-family: 'Montserrat'
       font-style: normal
