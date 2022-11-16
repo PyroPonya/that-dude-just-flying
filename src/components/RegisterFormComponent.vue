@@ -623,7 +623,7 @@ export default {
   &__password
     &-toggle
       position: absolute
-      height: 10px
+      height: 12px
       width: 15px
       right: 5%
       top: 20px
