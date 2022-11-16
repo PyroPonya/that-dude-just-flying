@@ -151,7 +151,7 @@ const updateLanguage = (lang) => {
           color: #FFFFFF
       .register
         align-self: flex-end
-@media (width < 1010px)
+@media (max-width: 1010px)
   .main__container
     .container
       padding: 30px 50px 120px 50px
@@ -168,7 +168,7 @@ const updateLanguage = (lang) => {
           .text__body
             font-size: 30px
             line-height: 37px
-@media (width < 750px)
+@media (max-width: 750px)
   .main__container
     background: url('./assets/bg_mobile.jpg')
     background-position: center

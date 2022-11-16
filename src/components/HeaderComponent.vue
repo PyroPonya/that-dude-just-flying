@@ -155,10 +155,10 @@ $rotate: 45deg
         width: 100%
         height: 50px
         color: #FFFFFF
-@media (width < 1010px)
+@media (max-width: 1010px)
   .container__header
     align-items: center
-@media (width < 750px)
+@media (max-width: 750px)
   .container__header
     max-height: 50px
     min-height: 50px

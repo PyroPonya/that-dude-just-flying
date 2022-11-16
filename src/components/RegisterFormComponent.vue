@@ -843,7 +843,7 @@ export default {
 //         gap: 5px
 //       .dropdown
 //         max-width: 240px
-@media (width < 750px)
+@media (max-width: 750px)
   .form
     max-width: 330px
     display: flex !important

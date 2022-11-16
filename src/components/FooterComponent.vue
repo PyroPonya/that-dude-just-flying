@@ -99,7 +99,7 @@ export default {
           border: 1.65px solid #E49100
         .element__text
           color: #E49100
-@media (width < 1010px)
+@media (max-width: 1010px)
   .container__footer
     padding-top: 130px
     .footer__title
@@ -119,7 +119,7 @@ export default {
           line-height: 24px
           max-width: 150px
           max-height: 50px
-@media (width < 750px)
+@media (max-width: 750px)
   .container__footer
     padding-top: 130px
     .footer__title
