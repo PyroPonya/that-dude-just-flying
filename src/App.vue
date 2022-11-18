@@ -310,6 +310,8 @@ const updateLanguage = (lang) => {
     background-position: center
     background-size: cover
     background-repeat: no-repeat
+    background-position: top -20%
+    min-width: 400px
     .container
       padding: 10px 15px
       gap: 15px
@@ -323,10 +325,13 @@ const updateLanguage = (lang) => {
         .container__footer
           padding-top: 130%
         .container__text
+          display: flex
+          align-items: center
           max-width: 210px
           text-align: center
-          text-justify: center
           height: 100%
+          .text__title
+            margin-bottom: 10px
           .btn-container
             .form__btn
               .btn__text
@@ -342,6 +347,9 @@ const updateLanguage = (lang) => {
           .text__body
             font-size: 20px
             line-height: 24px
+            min-width: 400px
+            font-size: 30px
+            line-height: 30px
         .register
           align-self: center
         // .footer__mobile
