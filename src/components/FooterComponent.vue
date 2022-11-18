@@ -42,8 +42,8 @@ export default {
   gap: 25px
   .footer__title
     font-weight: 600
-    font-size: 30px
-    line-height: 37px
+    font-size: 22px
+    line-height: 27px
     letter-spacing: 0.01em
     text-transform: uppercase
     color: #B9C6D6

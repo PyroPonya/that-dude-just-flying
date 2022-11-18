@@ -15,6 +15,14 @@
           <div class="text__body">
             {{ store.languages[currentLanguage].interface.landing.body }}
           </div>
+          <FooterComponent
+            v-if="isMobile"
+            :store="store"
+            :currentLanguage="currentLanguage"
+            :activeStep="activeStep"
+            :isMobile="isMobile"
+            class="footer footer__mobile"
+          />
           <div
             @click="redirectTo(store.links.sportsbook)"
             class="btn-container"
@@ -43,14 +51,6 @@
             </a>
           </div>
         </div>
-        <FooterComponent
-          v-if="isMobile"
-          :store="store"
-          :currentLanguage="currentLanguage"
-          :activeStep="activeStep"
-          :isMobile="isMobile"
-          class="footer footer__mobile"
-        />
         <!-- <register-form-component
           class="register"
           :store="store"
@@ -166,7 +166,7 @@ const updateLanguage = (lang) => {
           background-color: #13171E
           border-radius: 12px
           width: 100%
-          max-width: 350px
+          max-width: 320px
           height: 50px
           margin: 14px 0 7px 0
           // prevent selection start
@@ -208,8 +208,8 @@ const updateLanguage = (lang) => {
               font-family: 'Montserrat'
               font-style: normal
               font-weight: 700
-              font-size: 18px
-              line-height: 22px
+              font-size: 30px
+              line-height: 37px
               letter-spacing: 0.01em
               color: #1D232C
             &:hover
@@ -223,7 +223,7 @@ const updateLanguage = (lang) => {
         .form__login
           display: flex
           gap: 9px
-          max-width: 350px
+          max-width: 320px
           justify-content: center
           white-space: nowrap
           .login__title
@@ -283,15 +283,21 @@ const updateLanguage = (lang) => {
         align-self: flex-end
 @media (max-width: 1010px)
   .main__container
+    background-position: right
     .container
-      padding: 30px 50px 120px 50px
+      padding: 30px 50px 20px 50px
+      .container__footer
+        padding-top: 5%
       .container__body
+        // height: 100vh
         gap: 20px
         align-items: flex-start
         padding-top: 80px
         .container__text
           max-width: 425px
-          gap: 20px
+          gap: 0px
+        .footer
+          bottom: 0
           .text__title
             font-size: 24px
             line-height: 29px
@@ -310,14 +316,26 @@ const updateLanguage = (lang) => {
       .header
       .container__body
         flex-direction: column
-        justify-content: center
+        // justify-content: center
         align-items: center
-        gap: 30px
+        gap: 0px
         padding-top: 0
+        .container__footer
+          padding-top: 130%
         .container__text
           max-width: 210px
           text-align: center
           text-justify: center
+          height: 100%
+          .btn-container
+            .form__btn
+              .btn__text
+                font-size: 18px
+                line-height: 22px
+          .footer__mobile
+            padding-bottom: 30px
+            .footer__bg
+              width: 240px
           .text__title
             font-size: 14px
             line-height: 17px
