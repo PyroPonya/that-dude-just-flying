@@ -15,6 +15,33 @@
           <div class="text__body">
             {{ store.languages[currentLanguage].interface.landing.body }}
           </div>
+          <div
+            @click="redirectTo(store.links.sportsbook)"
+            class="btn-container"
+          >
+            <div class="form__btn">
+              <div class="btn__text">
+                {{
+                  store.languages[currentLanguage].interface.register.sign_up
+                }}
+              </div>
+            </div>
+          </div>
+          <div class="form__login">
+            <div class="login__title">
+              {{ store.languages[currentLanguage].interface.register.already }}
+            </div>
+            <a>
+              <div
+                @click="redirectTo(store.links.sign_in)"
+                class="login__link link"
+              >
+                {{
+                  store.languages[currentLanguage].interface.register.sign_in
+                }}
+              </div>
+            </a>
+          </div>
         </div>
         <FooterComponent
           v-if="isMobile"
@@ -24,14 +51,14 @@
           :isMobile="isMobile"
           class="footer footer__mobile"
         />
-        <register-form-component
+        <!-- <register-form-component
           class="register"
           :store="store"
           :currentLanguage="currentLanguage"
           :style="registerFormDisplay ? 'display: block' : 'display:none'"
           @requestRedirect="(payload) => redirectTo(payload)"
           @regData="(payload) => apiRegisterData(payload)"
-        />
+        /> -->
       </div>
       <FooterComponent
         v-if="!isMobile"
@@ -46,7 +73,7 @@
 </template>
 
 <script setup>
-import RegisterFormComponent from './components/RegisterFormComponent.vue';
+// import RegisterFormComponent from './components/RegisterFormComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import { onMounted, onUnmounted, ref } from 'vue';
@@ -54,7 +81,7 @@ import useStore from './Store/store';
 const store = useStore;
 const activeStep = ref(0);
 const isMobile = window.innerWidth <= 750 ? true : false;
-const registerFormDisplay = ref(true);
+// const registerFormDisplay = ref(true);
 // steps animatiom start
 function intervalId(duration = 2000) {
   setInterval(() => {
@@ -87,9 +114,9 @@ onUnmounted(() => {
 const redirectTo = (where) => {
   window.location.assign(where);
 };
-const apiRegisterData = (proxyData) => {
-  console.log(proxyData);
-};
+// const apiRegisterData = (proxyData) => {
+//   console.log(proxyData);
+// };
 const updateLanguage = (lang) => {
   currentLanguage.value = lang;
   console.log('selectedLang: ', lang);
@@ -123,6 +150,7 @@ const updateLanguage = (lang) => {
       width: 100%
     .container__body
       width: 100%
+      min-height: 500px
       display: flex
       flex-direction: row
       align-items: center
@@ -133,6 +161,110 @@ const updateLanguage = (lang) => {
         font-family: 'Montserrat'
         font-style: normal
         max-width: 685px
+        gap: 5px
+        .btn-container
+          background-color: #13171E
+          border-radius: 12px
+          width: 100%
+          max-width: 350px
+          height: 50px
+          margin: 14px 0 7px 0
+          // prevent selection start
+          user-select: none
+          -webkit-user-select: none
+          -moz-user-select: none
+          -khtml-user-select: none
+          -ms-user-select: none
+          // prevent selection end
+          .form__btn
+            display: flex
+            flex-direction: row
+            justify-content: center
+            align-items: center
+            min-width: 100%
+            min-height: 100%
+            gap: 10px
+            background: linear-gradient(256.33deg, #FFB639 18.19%, #E49100 80.14%)
+            color: #13171E
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25)
+            border-radius: 12px
+            cursor: pointer
+            text-transform: uppercase
+            &-error
+              display: flex
+              flex-direction: row
+              justify-content: center
+              align-items: center
+              min-width: 300px
+              min-height: 50px
+              margin: 14px 0 7px 0
+              gap: 10px
+              background-color: rgba(0, 0, 0, 0.25)
+              color: rgba(228, 145, 0, 0.6)
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25)
+              border-radius: 12px
+              cursor: not-allowed
+            .btn__text
+              font-family: 'Montserrat'
+              font-style: normal
+              font-weight: 700
+              font-size: 18px
+              line-height: 22px
+              letter-spacing: 0.01em
+              color: #1D232C
+            &:hover
+              background: linear-gradient(256.33deg, #FFD644 18.19%, #FFBB0E 80.14%)
+            &:active
+              background: linear-gradient(256.33deg, #FFB639 18.19%, #E49100 80.14%)
+              -webkit-background-clip: text
+              -webkit-text-fill-color: transparent
+              background-clip: text
+              text-fill-color: transparent
+        .form__login
+          display: flex
+          gap: 9px
+          max-width: 350px
+          justify-content: center
+          white-space: nowrap
+          .login__title
+            font-family: 'Montserrat'
+            font-style: normal
+            font-weight: 400
+            font-size: 14px
+            line-height: 17px
+            letter-spacing: 0.01em
+            color: #B9C6D6
+          .login__link
+            font-family: 'Montserrat'
+            font-style: normal
+            font-weight: 700
+            font-size: 14px
+            line-height: 17px
+            text-decoration: underline
+            text-transform: capitalize
+        .link
+          background: linear-gradient(256.33deg, #FFB639 18.19%, #E49100 80.14%)
+          background-clip: text
+          text-fill-color: transparent
+          -webkit-background-clip: text
+          -webkit-text-fill-color: transparent
+          cursor: pointer
+          border-bottom: 1px solid #FFB639
+          margin-bottom: -1px
+          &:hover
+            background: linear-gradient(256.33deg, #FFD644 18.19%, #FFBB0E 80.14%)
+            background-clip: text
+            text-fill-color: transparent
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+            border-bottom: 1px solid #FFD644
+            margin-bottom: -1px
+          a
+            text-decoration: none
+          &__terms
+            position: relative
+            &::after
+              content: '*'
         .text__title
           font-weight: 600
           font-size: 30px
